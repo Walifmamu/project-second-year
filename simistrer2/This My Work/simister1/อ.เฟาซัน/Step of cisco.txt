@@ -1,0 +1,78 @@
+
+
+                    <<<<<<  CISCO >>>>>
+
+
+Setup VLAN
+Step 1 : Setthe trunk port
+sw1#config terminal
+sw1(config)#interface fa0/1
+sw1(config-if)#switchport mode trunk
+sw1(config-if)#exit
+sw1(config)#exit
+sw1#show interface trunk
+
+
+Step 2 : Give the VLAN ID and VLAN NAME 
+sw1#config terminal
+sw1(config)#vlan 100
+sw1(config-vlan)#name managers
+sw1(config-vlan)#vlan 200
+sw1(config-vlan)#name employees
+sw1(config-vlan)#vlan 300
+sw1(config-vlan)#name supervisors
+sw1(config-vlan)#exit
+sw1(config)#exit
+sw1#show vlan
+
+Step 3 : Set the Access Mode
+sw1#config terminal
+sw1(config)#interface fa0/3
+sw1(config-if)#switchport mode access
+sw1(config-if)#switchport access vlan 100
+sw1(config-if)#exit
+sw1(config)#interface fa0/4
+sw1(config-if)#switchport mode access
+sw1(config-if)#switchport access vlan 200
+sw1(config-if)#exit
+sw1(config)#interface fa0/5
+sw1(config-if)#switchport mode access
+sw1(config-if)#switchport access vlan 300
+sw1(config-if)#exit
+
+
+
+Step 4 :................................. 
+
+
+
+
+setup inter-vlan
+Step1 Increase device layer 3 such as router,switch layer3 or firwall
+
+Step2 Setup the trunk port to the port has connected to router
+SW2(config)#interface fa0/10
+SW2(config-if)# switchport mode trunk
+SW2(config-if)#no shutdown
+SW2(config-if)#exit
+
+Step3 Setup on the router by devide sub-interface of fa0/0
+and give ip to sub-interface
+Router (config)#interface fa0/0 
+Router (config-if)#no shutdown 
+Router (config)#interface fa0/0.1
+Router (config-subif)#encapsulation dot1Q 10
+Router(config-subif)#ip add 192.168.10.254 255.255.255.0
+Router(config-subif)#description link-to-VLAN 10 (Optional) 
+Router(config-subif)#no shutdown
+Router (config-subif)#exit
+Router(config)#exit
+Router#show running-config (to see the result)]
+
+
+
+  
+no shut
+
+802
+

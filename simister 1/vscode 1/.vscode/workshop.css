@@ -1,0 +1,336 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family:  'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-image: url(background-img.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.navbar{
+  height: 70px;
+  width: 100%;
+  padding: 19px 30px;
+  background-color: #1a246a;
+  position: relative;
+}
+.navbar .nav-header{
+  display: inline;
+}
+.navbar .nav-header .nav-logo{
+  display: inline-block;
+  margin-top: -7px;
+}
+.navbar .nav-header .nav-logo h1 {
+  color: var(white);
+  font-size: 30px;
+}
+
+
+.navbar .nav-links{
+  display: inline;
+  float: right;
+  font-size: 18px;
+}
+ 
+.navbar .nav-links .loginBtn{
+  display: inline-block;
+  padding: 5px 15px;
+  margin-left: 20px;
+  font-size: 17px;
+  color: rgb(9, 14, 90);
+}
+.navbar .nav-links a {
+  padding: 10px 30px;
+  text-decoration: none;
+  font-weight: 550;
+  color: white;
+}
+/* Hover effects */
+.navbar .nav-links a:hover{
+  background-color: rgba(0, 0, 0, 0.3);
+}
+ 
+/* responsive navbar toggle button */
+.navbar #nav-check, .navbar .nav-btn{
+  display: none;
+}
+ 
+@media (max-width:400px) {
+  .navbar .nav-btn{
+    display: inline-block;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+  }
+  .navbar .nav-btn label {
+    display: inline-block;
+    width: 80px;
+    height: 70px;
+    padding: 25px;
+  }
+  .navbar .nav-btn label span {
+    display: block;
+    height: 10px;
+    width: 25px;
+    border-top: 3px solid #eee;
+  }
+  .navbar .nav-btn label:hover, .navbar #nav-check:checked ~ .nav-btn label {
+    background-color: rgb(9, 14, 90);
+    transition: all 0.5s ease;
+  }
+  .navbar .nav-links{
+    position: absolute;
+    display: block;
+    text-align: center;
+    width: 50%;
+    background-color: rgb(9, 14, 90);
+    transition: all 0.3s ease-in;
+    overflow-y: hidden;
+    top: 70px;
+    right: 0px;
+  }
+  .navbar .nav-links a {
+    display: block;
+  }
+ 
+  /* when nav toggle button not checked */
+  .navbar #nav-check:not(:checked) ~ .nav-links {
+    height: 0px;
+  }
+ 
+  /* when nav toggle button is checked */
+  .navbar #nav-check:checked ~ .nav-links {
+    height: calc(100vh - 70px);
+    overflow-y: auto;
+  }
+  .navbar .nav-links .loginBtn {
+    padding: 10px 40px ;
+    margin: 20px;
+    font-size:  18px;
+    font-weight: bold;
+    color: rgb(9, 14, 90);
+  }
+  /* Responsive dropdown code */
+  .navbar .nav-links .dropdown, .navbar .nav-links .dropdown2 {
+    float: none;
+    width: 100%;
+  }
+  .navbar .nav-links .drop-content, .navbar .nav-links .drop-content2 {
+    position: relative;
+    background-color: rgb(220, 220, 250);
+    top: 0px;
+    left: 0px;
+  }
+  /* Text color */
+  .navbar .nav-links .drop-content a {
+    color: rgb(9, 14, 90);
+  }  
+ 
+}
+ 
+/* Dropdown menu CSS code */
+.dropdown{
+  position: relative;
+  display: inline-block;
+}
+.drop-content {
+  display: none;
+  position: absolute;
+  background-color: #1b4cd3;
+  min-width: 120px;
+  font-size: 16px;
+  top: 34px;
+  z-index: 1;
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.4);
+}
+/* on hover show dropdown */
+.dropdown:hover .drop-content {
+  display: block;
+}
+/* drondown links */
+.drop-content a {
+  padding: 12px 10px;
+  border-bottom: 1px solid rgb(197, 197, 250);
+  display: block;
+  transition: all 0.5s ease !important;
+}
+.dropBtn .drop-content a:hover {
+  background-color: rgb(230, 230, 230);
+}
+.dropdown:hover .dropBtn {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.main {
+  width: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%), url(imag/ff.jpg);
+  background-position: center;
+  background-size: cover;
+  height: 109vh;
+}
+
+
+
+
+/*
+:root {
+  --color-primary: #0073ff;
+  --color-white: #e9e9e9;
+  --color-black: #141d28;
+  --color-black-1: #212b38;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: url(../images) no-repeat;
+  background: cover;
+  background-position: none;
+  
+  font-family: sans-serif;
+
+}
+
+.logo {
+  color: var(--color-white);
+  font-size: 30px;
+}
+
+.logo span {
+  color: var(--color-primary);
+}
+
+/*............h1 , ul, li .................. 
+.menu-bar {
+  background-color: var(--color-black);
+  height: 80px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+
+}
+
+.menu-bar ul {
+  list-style: none;
+  display: flex;
+}
+
+.menu-bar ul li {
+  /* width: 120px; 
+  padding: 10px 30px;
+  /* text-align: center;
+
+  position: relative;
+}
+
+.menu-bar ul li a {
+  font-size: 20px;
+  color: var(--color-white);
+  text-decoration: none;
+
+
+}
+
+.menu-bar ul li a:hover {
+  color: var(--color-primary);
+}
+/*
+@media screen and (max-width :650px){
+  .menu-bar {
+    background-color: var(--color-black);
+    height: 80px;
+  }
+  .menu-bar ul {
+    list-style: none;
+    display: block;
+  }
+  .menu-bar ul li {
+    padding: 10px ;
+  }
+  .menu-bar ul li a {
+    text-decoration: none;
+  }
+  :root {
+    height: 500px;
+    display: block;
+    position: absolute;
+  }
+  * {
+    box-sizing: content-box;
+    height: 60px;
+  }
+  body {
+      display: block;
+      width: 200px;
+  }
+  .logo span {
+    display: 0;
+  }
+}
+*/
+/*.............................. 
+
+.fas {
+  float: right;
+  margin-left: 10px;
+  padding-top: 3px;
+}
+
+/*.............................. */
+
+/* dropdown menu style */
+/*
+.dropdown-menu {
+  display: none;
+}
+
+.menu-bar ul li:hover .dropdown-menu {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  background-color: var(--color-black);
+}
+
+.menu-bar ul li:hover .dropdown-menu ul {
+  display: block;
+  margin: 10px;
+}
+
+.menu-bar ul li:hover .dropdown-menu ul li {
+  width: 150px;
+  padding: 10px;
+}
+@media (max-width:991px){
+  header{
+    padding: 20px;
+  }
+  header .menu-bar {
+    position: absolute;
+    top: 100px; left: 0; right: 0;
+    background-color: rgb(7, 54, 65);
+    border-top: 1px solid rgba(0,0,0,.1); 
+  }
+   * {
+    width: 100%;
+  }
+  header .menu-bar ul li ul{
+    position: relative;
+    width: 100%;
+  }
+}*/
+
+
+
